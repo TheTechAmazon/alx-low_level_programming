@@ -23,8 +23,7 @@ int _atoi(char *s)
 	{
 		res = (res * 10) + (s[i] - '0');
 		i++;
-		res *= sign;
-		return (res);
-	
 	}
+	res *= sign;
+	return (res);
 }
