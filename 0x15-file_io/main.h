@@ -1,6 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/* 
+ * File: main.h
+ * Auth: Mary Itanola
+ * Desc: Heder file content prototype
+ */
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
