@@ -6,7 +6,7 @@
  * of a number to unsigned int
  * @n: The decimamal number to print as binary contained  by the char string
  */
-viod print_binary(unsigned long int n)
+void print_binary(unsigned long int n)
 {
 	unsigned long int temp;
 	int s;
