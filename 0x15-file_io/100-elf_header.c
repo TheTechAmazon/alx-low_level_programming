@@ -21,17 +21,18 @@ void close_elf(int elf);
  * check_elf - Checks if a file is an ELF file in the function.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
  *
+ * Description: exit code 98 if the file is not an ELF file.
  */
 void check_elf(unsigned char *e_ident)
 {
-	int ind;
+	int index;
 
-	for (ind = 0; ind < 4; ind++)
+	for (index = 0; index < 4; index++)
 	{
-		if (e_ident[ind] != 127 &&
-				e_ident[ind] != 'E' &&
-				e_ident[ind] != 'L' &&
-				e_ident[ind] != 'F')
+		if (e_ident[index] != 127 &&
+				e_ident[index] != 'E' &&
+				e_ident[index] != 'L' &&
+				e_ident[index] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -180,7 +181,7 @@ void print_osabi(unsigned char *e_ident)
  */
 void print_abi(unsigned char *e_ident)
 {
-	printf("  ABI Version:                              %d\n",
+	printf("ABI Version:%d\n",
 			e_ident[EI_ABIVERSION]);
 }
 
@@ -194,7 +195,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-	printf("  Type:                              ");
+	printf("Type:");
 
 	switch (e_type)
 	{
@@ -225,7 +226,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  */
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
-	printf("  Entry point address:                ");
+	printf("Entry point address:");
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
