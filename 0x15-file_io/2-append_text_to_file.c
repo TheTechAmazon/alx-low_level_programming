@@ -5,9 +5,9 @@
  * @filename: This is the pointer to the name of the file
  * @textcontent: the string to add to the content of the file
  *
- * return: if the file exist - 1
- * if the file does not exist - -1
- * if the file fails - -1
+ * return: if the file exist 1
+ * if the file does not exist -1
+ * if the function fails or filename is NULL -1
  */
 
 int append_text_to_file(const char *filename, char *text_content)
@@ -17,12 +17,13 @@ int append_text_to_file(const char *filename, char *text_content)
 	int rwr;
 
 	if (!filename)
-		return(-1)
-
-			fd = open(filename, O_WRONLY | O_APPEND):
-
-				if (fd == -1)
-					return (-1);
+		return(-1);
+	
+	fd = open(filename, O_WRONLY | O_APPEND);
+	
+	if (fd == -1)
+		
+		return (-1);
 
 	if (text_content)
 	{
