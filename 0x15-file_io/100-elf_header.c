@@ -19,9 +19,9 @@ void close_elf(int elf);
 
 /**
  * check_elf - Checks if a file is an ELF file in the function.
- * @e_ident: A pointer to an array containing the ELF magic numbers.
+ * @e_ident: Pointer to an array containing the ELF magic numbers.
  *
- * Description: exit code 98 if the file is not an ELF file.
+ * Description: If the file is not an ELF file - exit code 98.
  */
 void check_elf(unsigned char *e_ident)
 {
@@ -30,9 +30,9 @@ void check_elf(unsigned char *e_ident)
 	for (index = 0; index < 4; index++)
 	{
 		if (e_ident[index] != 127 &&
-				e_ident[index] != 'E' &&
-				e_ident[index] != 'L' &&
-				e_ident[index] != 'F')
+			e_ident[index] != 'E' &&
+			e_ident[index] != 'L' &&
+			e_ident[index] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -47,15 +47,15 @@ void check_elf(unsigned char *e_ident)
  */
 void print_magic(unsigned char *e_ident)
 {
-	int ind;
+	int index;
 
-	printf("  Magic:   ");
+	printf("Magic:");
 
-	for (ind = 0; ind < EI_NIDENT; ind++)
+	for (index = 0; index < EI_NIDENT; index++)
 	{
-		printf("%02x", e_ident[ind]);
+		printf("%02x", e_ident[index]);
 
-		if (ind == EI_NIDENT - 1)
+		if (index == EI_NIDENT - 1)
 			printf("\n");
 		else
 			printf(" ");
@@ -68,7 +68,7 @@ void print_magic(unsigned char *e_ident)
  */
 void print_class(unsigned char *e_ident)
 {
-	printf("  Class:                             ");
+	printf("Class:");
 
 	switch (e_ident[EI_CLASS])
 	{
@@ -92,7 +92,7 @@ void print_class(unsigned char *e_ident)
  */
 void print_data(unsigned char *e_ident)
 {
-	printf("  Data:                              ");
+	printf("Data:");
 
 	switch (e_ident[EI_DATA])
 	{
@@ -116,7 +116,7 @@ void print_data(unsigned char *e_ident)
  */
 void print_version(unsigned char *e_ident)
 {
-	printf("  Version:                              %d",
+	printf("Version:%d",
 			e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
@@ -136,7 +136,7 @@ void print_version(unsigned char *e_ident)
  */
 void print_osabi(unsigned char *e_ident)
 {
-	printf("  OS/ABI:                            ");
+	printf("OS/ABI:");
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -168,7 +168,7 @@ void print_osabi(unsigned char *e_ident)
 			printf("ARM\n");
 			break;
 		case ELFOSABI_STANDALONE:
-			prinf("Standalone App\n");
+			printf("Standalone App\n");
 			break;
 		default:
 			printf("<unknown: %x>\n", e_ident[EI_OSABI]);
@@ -238,7 +238,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 		printf("%#x\n", (unsigned int)e_entry);
 
 	else
-		printf("%#1x\n", e_entry);
+		printf("%#11x", e_entry);
 }
 
 /**
@@ -268,7 +268,7 @@ void close_elf(int elf)
  * Description: If the file is not an ELF file
  *              or the function fails - exit code 98.
  */
-int main(int__attribute__((__unused__)) argc, char *argv[])
+int main(__attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
 	int o, r;
