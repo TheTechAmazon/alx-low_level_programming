@@ -16,6 +16,7 @@ void print_osabi(unsigned char *e_ident);
 void print_type(unsigned int e_type, unsigned char *e_ident);
 void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
+int main(__attribute__((__unused__)) argc, char *argv[])
 
 /**
  * check_elf - Checks if a file is an ELF file in the function.
@@ -225,13 +226,14 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  * @e_entry: the address of the ELF entry point.
  * @e_ident: A pointer to an array containing the ELF class.
  */
-void print_entry(unsigned long int e_entry, unsigned char *e_ident)
+void print_entry(long unsigned int e_entry, unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
+
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
-			((e_entry >> 8) & 0xFF00FF);
+			  ((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 

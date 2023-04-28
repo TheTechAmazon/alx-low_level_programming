@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 	if (b == -1 || t == -1)
 	{
 		if (b == -1)
-			dprintf(STDERR_FILENO, "Error can't close fd %d\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		if (t == -1)
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
