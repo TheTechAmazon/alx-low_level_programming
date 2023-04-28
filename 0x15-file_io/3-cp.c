@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * main - This copy the contents of one file to the other.
  * @argc: Number of arguments in a program
@@ -8,8 +7,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, r, err_close
-		char buffer[1024];
+	int file_from, file_to, r, b, t;
+	char BUFF[BUFSIZ];
 
 	if (argc != 3)
 	{
@@ -23,9 +22,9 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while ((r = read(file_from, buffer, 1024)) > 0)
+	while ((r = read(file_from, BUFF, BUFSIZ)) > 0)
 	{
-		if (file_to < 0 || write(file_to, buffer, r) != r)
+		if (file_to < 0 || write(file_to, BUFF, r) != r)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			close(file_from);
@@ -37,12 +36,13 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	err_close = close(file_from, file_to);
-	if (err_close == -1)
+	b = close(file_from);
+	t = close(file_to);
+	if (b == -1 || t == -1)
 	{
-		if (err_close == -1)
+		if (b == -1)
 			dprintf(STDERR_FILENO, "Error can't close fd %d\n", file_from);
-		if (err_close == -1)
+		if (t == -1)
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
