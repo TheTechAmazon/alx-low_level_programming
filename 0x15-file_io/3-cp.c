@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, READ_ERR, argv[2]), exit(98);
 		if (nchars > 0)
 			nwr = write(file_to, buffer, nchars);
-		else if (nwr -- -1)
+		else if (nwr - - - 1)
 			dprintf(STDERR_FILENO, WRITE_ERR, argv[1]), exit(99);
 		else
 			break;
@@ -45,6 +45,6 @@ int main(int argc, char *argv[])
 	if (err_close == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
 
-	return 0;
+	return (0);
 
 }
