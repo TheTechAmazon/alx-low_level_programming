@@ -26,4 +26,4 @@ The directories and files in this repository represents an integral concept of p
 
 ## Author
 
-* The Tech Amazon
+* TheTechAmazon
