@@ -9,7 +9,7 @@ The directories and files in this repository represents an integral concept of p
 * Language: C
 * Compiler: gcc 9.4.0
 * Compiler Flags: -Wall -Werror -Wextra -pedantic -std=gnu89
-* Style Guidlines: [Betty Coding Style] (https://github.com/holbertonschool/Betty/wiki)
+* Style Guidlines: [Betty Coding Style](https://github.com/holbertonschool/Betty/wiki).
 * Editor: vi, vim
 
 ## 
