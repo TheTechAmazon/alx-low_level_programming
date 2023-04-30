@@ -1,7 +1,7 @@
 # Project: C Low Level Programming
 
 ##
-The directories and files in this repository represents an integral concept of programming, focusing on the C programming language. There are references to: variables, conditionals, debugging, arrays, pointers, recursion, libraries, malloc, free, preprocessor, structures and typedef, function pointers, variadic functions, linked lists, bit manipulation, file I/O. The repository also contains bash scripts and functions around a particular concep
+The directories and files in this repository represents an integral concept of programming, focusing on the C programming language. There are references to: variables, conditionals, debugging, arrays, pointers, recursion, libraries, malloc, free, preprocessor, structures and typedef, function pointers, variadic functions, linked lists, bit manipulation, file I/O. The repository also contains bash scripts and functions around a particular concept.
 
 ## Environment
 
