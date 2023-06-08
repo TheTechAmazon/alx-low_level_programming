@@ -1,4 +1,4 @@
-This project teas the process by which a function call itself directly or indirectly.
+This project teaches the process by which a function call itself directly or indirectly.
 
 The project code is 0x08. C - Recursion in the ALX-low-levele-programming.
 
