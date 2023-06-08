@@ -4,17 +4,17 @@
  * _puts_recursion - print a string and then a new line
  * @s: string to print
  *
- * Return: Always ) (Success)
+ * Return: Always 0 (Success)
  */
 
-void _puts_recursion(cahr *s)
+void _puts_recursion(char *s)
 {
 	if (*s == '\0')
 	{
-		_putchar(*\n*);
+		_putchar('\n');
 		return;
 	}
-	_pitchar('s);
+	_pitchar(*s);
 	s++;
 	_puts_recursion(s);
 }
